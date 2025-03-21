@@ -42,3 +42,80 @@ void sortStudentsByAge(Student students[], int size){
         }
     }
 }
+/* #include <iostream>
+#include <fstream>
+using namespace std;
+
+struct Student {
+    char name[8];
+    int age;
+    double testScore;
+};
+
+void sortStudentsByAge(Student students[], int size);
+
+int main() {
+    ifstream inputFile("data.txt");
+    
+if( inputFile.is_open()==false){
+               cerr<<"error in opening data.txt";
+        return 1;
+    }
+    
+   int numStudents = 20;
+
+    Student students[20] ;
+    int i=0;
+    
+ //int datacount populate_student_data(ifstream myfile,Student students[] )  
+ while(inputFile >> students[i].name >> students[i].age >> students[i].testScore)
+   
+    {
+       // cout << "Student " << students[i].name << ": Age " << students[i].age
+            //     << ", Test Score " << students[i].testScore << endl;
+                  i++;
+    }
+    
+    
+    cout<<i;
+    numStudents = i;
+    
+ sortStudentsByAge(students, numStudents);
+
+  cout << "Students sorted by age:";
+    for (int i = 0; i < numStudents; ++i) {
+        cout << "Student " << students[i].name << ": Age " << students[i].age
+                  << ", Test Score " << students[i].testScore << endl;
+    }
+    
+inputFile.close();
+    return 0;
+}
+void sortStudentsByAge(Student students[], int size){
+    Student temp; 
+    for (int i = 0; i < size - 1; ++i) {
+        for (int j = 0; j < size - i - 1; ++j) {
+            if (students[j].age > students[j + 1].age) {
+             
+                 temp = students[j];
+                students[j] = students[j + 1];
+                students[j + 1] = temp;
+            }
+        }
+    }
+}
+
+/* void sortStudentsByName(Student students[], int size){
+    Student temp; 
+    for (int i = 0; i < size - 1; ++i) {
+        for (int j = 0; j < size - i - 1; ++j) {
+            if (students[j].name > students[j + 1].name) {
+             
+                 temp = students[j];
+                students[j] = students[j + 1];
+                students[j + 1] = temp;
+            }
+        }
+    }
+}*/
+*/
