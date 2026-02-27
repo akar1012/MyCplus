@@ -59,3 +59,60 @@ v.pop_back()	Removes last element
 v.push_back(x)	Adds element to end
 
 */
+
+. Compare the average of numbers to a threshold in C++ (30 points) Write a function named compare() that takes two arguments. 
+The first is a const reference to a vector of integers, and the second is a single floating point number representing a threshold. 
+The function compares the average of the numbers to the threshold and returns 'true' if the average is greater.
+Assume the average is 0 when the input vector is empty.
+
+/*
+#include <vector>
+using namespace std;
+
+bool compare(const vector<int>& numbers, float threshold) {
+    if (numbers.empty()) {
+        return 0.0 > threshold;  // average is 0 when empty
+    }
+
+    double sum = 0.0;
+    for (int num : numbers) {
+        sum += num;
+    }
+
+    double average = sum / numbers.size();
+    return average > threshold;
+}
+*/
+Polynomial derivatives function in C++ (35 points) One convenient way to represent a polynomial is by using a list of coefficients.
+For example, the polynomial of degree 4 in x defined by P1(x) = 2.3x4 + 1.2x2 - 9.3x + 8.4 can be represented with five floating-point values stored 
+in a vector: {2.3, 0.0, 1.2, -9.3, 8.4}.//It is important to notice the ordering of the coefficients and to explicitly include zero values for missing terms
+to ensure that the position in the vector implicitly indicates the power of associated with each coefficient. 
+Write a function named takePolyDerivative() that takes a reference to a vector of floating-point coefficients as an argument. 
+The function alters the vector object so that it represents the polynomial resulting from taking the derivative of the input (once, with respect to the sole variable). 
+The function return should be void. Don't return a new vector, but modify the one passed as input. Note that the derivative of 0 is 0. For example,
+assume the input vector is {2.3, 0.0, 1.2, -9.3, 8.4}. The function will modify this vector into {9.2, 0.0, 2.4, -9.3}.
+
+#include <vector>
+using namespace std;
+void takePolyDerivative(vector<float>& coeffs) {
+    
+int n = coeffs.size();
+    
+    // If polynomial is constant or empty
+    if (n <= 1) {
+        coeffs.clear();
+        coeffs.push_back(0.0f);
+        return;
+    }
+
+    int power = n - 1;  // highest power
+    
+    for (int i = 0; i < n - 1; i++) {
+        coeffs[i] = coeffs[i] * power;
+        power--;
+    }
+
+    // Remove the last element (constant term)
+    coeffs.pop_back();
+}
+
