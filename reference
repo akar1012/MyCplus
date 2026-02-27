@@ -1,0 +1,61 @@
+/*
+const vector<int>& v   // read only
+vector<int>& v         // modify in place
+vector<int> v          // makes copy
+
+v.size()
+v.empty()
+v.push_back(x)
+v.erase(v.begin() + i)
+v[i]
+
+for (size_t i = 0; i < v.size(); i++)
+
+ // sort
+
+for (size_t i = 0; i < v.size(); i++) {
+    for (size_t j = 0; j + 1 < v.size() - i; j++) {
+        if (v[j] > v[j+1]) {
+            int temp = v[j];
+            v[j] = v[j+1];
+            v[j+1] = temp;
+        }
+    }
+}
+// #include <cctype>
+isalpha(c)
+isdigit(c)
+ispunct(c)
+isspace(c)
+tolower(c)
+toupper(c)
+
+for (size_t i = 0; i < s.length(); i++) {
+    if (condition) {
+        s.erase(i, 1);
+        i--;   // IMPORTANT
+    }
+}
+
+// include <limits>
+#include <limits>
+
+int largest = std::numeric_limits<int>::min();
+int second = std::numeric_limits<int>::min();
+
+for (...) {
+    if (v[i] > largest) {
+        second = largest;
+        largest = v[i];
+    }
+    else if (v[i] > second && v[i] != largest) {
+        second = v[i];
+    }
+}
+
+// 
+v.back()	Returns last element
+v.pop_back()	Removes last element
+v.push_back(x)	Adds element to end
+
+*/
