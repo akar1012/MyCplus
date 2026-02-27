@@ -151,3 +151,62 @@ for (size_t i = 0; i < n; i++) {
 }
 
 
+// 2D array traversal 
+for (size_t i = 0; i < grid.size(); i++) {          // rows
+    for (size_t j = 0; j < grid[i].size(); j++) {   // columns
+        cout << grid[i][j] << " ";
+    }
+    cout << endl;
+}
+
+// column wise 
+if (!grid.empty()) {
+    size_t cols = grid[0].size();
+
+    for (size_t j = 0; j < cols; j++) {          // column first
+        for (size_t i = 0; i < grid.size(); i++) {
+            cout << grid[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+// diagnol traversal 
+for (size_t i = 0; i < grid.size(); i++) {
+    cout << grid[i][i] << " ";
+}
+
+
+// TRANSPOSE 
+vector<vector<int>> transpose(const vector<vector<int>>& grid) {
+
+    if (grid.empty())
+        return {};
+
+    size_t rows = grid.size();
+    size_t cols = grid[0].size();
+
+    // Create new matrix with swapped dimensions
+    vector<vector<int>> result(cols, vector<int>(rows));
+
+    for (size_t i = 0; i < rows; i++) {
+        for (size_t j = 0; j < cols; j++) {
+            result[j][i] = grid[i][j];
+        }
+    }
+
+    return result;
+}
+------
+vector<int> rowSums(const vector<vector<int>>& grid) {
+if (grid.empty()) return {};
+    vector<int> v(grid.size(), 0);  //  initialize size properly
+
+    for (size_t i = 0; i < grid.size(); i++) {
+        for (size_t j = 0; j < grid[i].size(); j++) {
+            v[i] += grid[i][j];   // correct indexing
+        }
+    }
+
+    return v;
+}
