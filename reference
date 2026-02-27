@@ -116,3 +116,38 @@ int n = coeffs.size();
     coeffs.pop_back();
 }
 
+// 2D VECTORS
+for (size_t i = 0; i < grid.size(); i++) {
+    for (size_t j = 0; j < grid[i].size(); j++) {
+        // use grid[i][j]
+    }
+}
+
+if (grid.empty() || grid[0].empty()) return;
+
+int mn = grid[0][0];
+
+for (size_t i = 0; i < grid.size(); i++) {
+    for (size_t j = 0; j < grid[i].size(); j++) {
+        if (grid[i][j] < mn)
+            mn = grid[i][j];
+    }
+}
+
+// SUM of all elements
+int sum = 0;
+
+for (size_t i = 0; i < grid.size(); i++) {
+    for (size_t j = 0; j < grid[i].size(); j++) {
+        sum += grid[i][j];
+    }
+}
+
+// tranpose 
+for (size_t i = 0; i < n; i++) {
+    for (size_t j = i + 1; j < n; j++) {
+        swap(grid[i][j], grid[j][i]);
+    }
+}
+
+
